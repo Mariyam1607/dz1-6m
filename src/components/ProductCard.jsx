@@ -1,4 +1,4 @@
-import { useLoaderData } from 'react-router-dom'
+import {useLoaderData} from 'react-router-dom'
 import s from './ProductCard.module.scss'
 
 export const ProductCard = ({ index }) => {
@@ -7,7 +7,7 @@ export const ProductCard = ({ index }) => {
 
   return (
     <div className={s.card}>
-      <img src={product.images[0]} alt={product.title} width="150" />
+      <img className={s.imgage} src={product.images[0]} alt={product.title} />
       <div>
         <h2 className={s.title}>{product.title}</h2>
         <p className={s.brand}>{product.brand}</p>
