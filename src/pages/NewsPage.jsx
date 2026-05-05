@@ -1,16 +1,17 @@
-import { Link, useLoaderData, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
+import { useNews } from '../api/useNews.js'
 
 export const NewsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const page = Number(searchParams.get('page')) || 0
 
-  const data = useLoaderData()
+  const { data } = useNews(page)
 
   return (
     <div className="news">
-      {data.map((item) => (
+      {data?.map((item) => (
         <div key={item.id}>
           <Link to={`/news/${item.id}`}>
             <h3>{item.title}</h3>
