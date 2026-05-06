@@ -1,14 +1,16 @@
-import {createBrowserRouter} from 'react-router-dom'
-import {Home} from './pages/Home.jsx'
-import {Products} from './pages/Products.jsx'
-import {Cart} from './pages/Cart.jsx'
-import {CustomLayout} from './providers/Layout.jsx'
-import {fetchProducts} from './api/fetchProducts.js'
+import { createBrowserRouter } from 'react-router-dom'
+import { Home } from './pages/Home.jsx'
+import { Products } from './pages/Products.jsx'
+import { Cart } from './pages/Cart.jsx'
+import { CustomLayout } from './providers/Layout.jsx'
+import { fetchProducts } from './api/fetchProducts.js'
 import NotFoundPage from './pages/NotFoundPage.jsx'
-import {NewsDetail} from './pages/NewsDetail.jsx'
-import {fetchNews} from './api/fetchNews.js'
-import {NewsPage} from './pages/NewsPage.jsx'
-import {fetchNew} from './api/fetchNew.js'
+import { NewsDetail } from './pages/NewsDetail.jsx'
+import { fetchNews } from './api/fetchNews.js'
+import { NewsPage } from './pages/NewsPage.jsx'
+import { fetchNew } from './api/fetchNew.js'
+import { V1Products } from './pages/V1Products.jsx'
+import { V1ProductDetail } from './pages/V1ProductDetail.jsx'
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
         loader: ({ params }) => fetchNew(params.id),
       },
       {
+        path: '/v1products',
+        element: <V1Products />,
+      },
+      {
+        path: '/v1products/:id',
+        element: <V1ProductDetail />,
+      },
+      {
         path: '/cart',
         element: <Cart />,
       },
@@ -51,3 +61,7 @@ export const router = createBrowserRouter([
     ],
   },
 ])
+
+
+
+// `https://api.escuelajs.co/api/v1/products/${params.id}`,

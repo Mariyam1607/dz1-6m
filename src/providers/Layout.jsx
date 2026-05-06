@@ -1,5 +1,5 @@
-import { Link, Outlet } from 'react-router-dom'
-import { Layout, Menu } from 'antd'
+import {Link, Outlet} from 'react-router-dom'
+import {Layout, Menu} from 'antd'
 
 const { Header, Content, Footer, Sider } = Layout
 
@@ -20,6 +20,10 @@ export const CustomLayout = () => {
     {
       label: <Link to="/news">NewsPage</Link>,
       key: '4',
+    },
+    {
+      label: <Link to="/v1products">V1Products</Link>,
+      key: '5',
     },
   ]
 
