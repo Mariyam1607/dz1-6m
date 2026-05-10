@@ -1,53 +1,50 @@
-import { Button, Input, InputNumber } from 'antd'
+import { Button, Form, Input } from 'antd'
 import { useFilter } from '../stores/filter.store.js'
+import FormItem from 'antd/es/form/FormItem/index.js'
+import { useEffect } from 'react'
+import { useForm } from 'antd/es/form/Form.js'
 
 export const FilterForm = () => {
-  const {
-    setPriceMin,
-    setPriceMax,
-    price_min,
-    price_max,
-    title,
-    categoryId,
-    setTitle,
-    setCategoryId,
-    reset,
-  } = useFilter()
+  const { price_min, price_max, title, categoryId, reset, setFilter } =
+    useFilter()
+  const [form] = useForm()
+
+  useEffect(() => {
+    form.setFieldsValue({
+      from: price_min,
+      to: price_max,
+      title: title,
+      category: categoryId,
+    })
+  }, [price_min, price_max, title, categoryId, form])
 
   return (
-    <div className="form">
-      <div>
-        <Input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Поиск по названию"
-        />
-      </div>
-      <div>
-        <Input
-          value={categoryId}
-          onChange={(e) => setCategoryId(e.target.value)}
-          placeholder="Поиск по категории"
-        />
-      </div>
-      <div>
-        <InputNumber
-          value={price_min}
-          onChange={setPriceMin}
-          placeholder="Цена от"
-        />
-      </div>
-      <div>
-        <InputNumber
-          value={price_max}
-          onChange={setPriceMax}
-          placeholder="Цена до"
-        />
-      </div>
+    <Form
+      form={form}
+      className="form"
+      onFinish={(values) => {
+        setFilter(values)
+      }}
+    >
+      <FormItem name="title">
+        <Input placeholder="Поиск по названию" />
+      </FormItem>
+      <FormItem name="category">
+        <Input placeholder="Поиск по категории" />
+      </FormItem>
+      <FormItem name="from">
+        <Input type={'number'} placeholder="Цена от" />
+      </FormItem>
+      <FormItem name="to">
+        <Input type={'number'} placeholder="Цена до" />
+      </FormItem>
 
-      <Button type="primary" onClick={reset}>
-        Сброс
-      </Button>
-    </div>
+      <FormItem>
+        <Button htmlType="submit">Применить</Button>
+        <Button type="primary" onClick={reset}>
+          Сбросить
+        </Button>
+      </FormItem>
+    </Form>
   )
 }

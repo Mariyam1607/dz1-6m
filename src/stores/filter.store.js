@@ -1,21 +1,31 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
+import {persist} from 'zustand/middleware'
 
-export const useFilter = create((set) => ({
-  title: '',
-  categoryId: '',
-  price_min: null,
-  price_max: null,
-
-  setTitle: (value) => set({ title: value }),
-  setCategoryId: (value) => set({ categoryId: value }),
-  setPriceMin: (value) => set({ price_min: value }),
-  setPriceMax: (value) => set({ price_max: value }),
-
-  reset: () =>
-    set({
+export const useFilter = create(
+  persist(
+    (set) => ({
       title: '',
       categoryId: '',
       price_min: null,
       price_max: null,
+
+      setFilter: (formData) => {
+        set({
+          price_min: formData.from,
+          price_max: formData.to,
+          title: formData.title,
+          categoryId: formData.category,
+        })
+      },
+
+      reset: () =>
+        set({
+          title: '',
+          categoryId: '',
+          price_min: null,
+          price_max: null,
+        }),
     }),
-}))
+    { name: 'filter' },
+  ),
+)
