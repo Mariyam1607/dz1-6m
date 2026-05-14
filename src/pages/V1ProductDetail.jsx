@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { useV1ProductDetail } from '../api/useV1Products.js'
+import { useV1ProductDetail } from '../app/modules/Products/hooks/useV1Products.js'
 
 export const V1ProductDetail = () => {
   const { data } = useV1ProductDetail()

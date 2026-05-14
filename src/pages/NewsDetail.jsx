@@ -1,5 +1,5 @@
 import { Typography } from 'antd'
-import { useNewDetail } from '../api/useNews.js'
+import { useNewDetail } from '../app/modules/Products/hooks/useNews.js'
 
 export const NewsDetail = () => {
   const { data } = useNewDetail()

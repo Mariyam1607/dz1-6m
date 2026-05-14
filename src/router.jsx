@@ -2,13 +2,13 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Home } from './pages/Home.jsx'
 import { Products } from './pages/Products.jsx'
 import { Cart } from './pages/Cart.jsx'
-import { CustomLayout } from './providers/Layout.jsx'
-import { fetchProducts } from './api/fetchProducts.js'
+import { CustomLayout } from './app/providers/Layout.jsx'
+import { fetchProducts } from './app/modules/Products/api/fetchProducts.js'
 import NotFoundPage from './pages/NotFoundPage.jsx'
 import { NewsDetail } from './pages/NewsDetail.jsx'
-import { fetchNews } from './api/fetchNews.js'
+import { fetchNews } from './app/modules/Products/api/fetchNews.js'
 import { NewsPage } from './pages/NewsPage.jsx'
-import { fetchNew } from './api/fetchNew.js'
+import { fetchNew } from './app/modules/Products/api/fetchNew.js'
 import { V1Products } from './pages/V1Products.jsx'
 import { V1ProductDetail } from './pages/V1ProductDetail.jsx'
 
@@ -61,7 +61,5 @@ export const router = createBrowserRouter([
     ],
   },
 ])
-
-
 
 // `https://api.escuelajs.co/api/v1/products/${params.id}`,

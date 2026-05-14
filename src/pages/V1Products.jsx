@@ -1,8 +1,8 @@
 import { Pagination, Spin } from 'antd'
-import { useV1Products } from '../api/useV1Products.js'
-import { V1ProductCard } from '../components/V1ProductCard'
+import { useV1Products } from '../app/modules/Products/hooks/useV1Products.js'
+import { V1ProductCard } from '../app/modules/Products/ui/V1ProductCard.jsx'
 import { Link, useSearchParams } from 'react-router-dom'
-import { FilterForm } from '../components/FilterForm.jsx'
+import { FilterForm } from '../shared/components/FilterForm.jsx'
 import { toast } from 'react-toastify'
 
 export const V1Products = () => {

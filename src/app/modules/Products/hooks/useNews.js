@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { fetchNews } from './fetchNews.js'
-import { fetchNew } from './fetchNew.js'
+import { fetchNews } from '../api/fetchNews.js'
+import { fetchNew } from '../api/fetchNew.js'
 import { useParams } from 'react-router-dom'
 
 export const useNews = (page) => {

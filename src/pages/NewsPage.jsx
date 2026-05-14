@@ -1,6 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { Button } from 'antd'
-import { useNews } from '../api/useNews.js'
+import { useNews } from '../app/modules/Products/hooks/useNews.js'
 
 export const NewsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -14,10 +14,16 @@ export const NewsPage = () => {
       {data?.map((item) => (
         <div key={item.id}>
           <Link to={`/news/${item.id}`}>
-            <h3>{item.title}</h3>
+            <h3
+              style={{ color: 'black', fontWeight: 'bold', fontSize: '17px' }}
+            >
+              {item.title}
+            </h3>
           </Link>
-          <p>Автор: User {item.userId}</p>
-          <p>Дата: 2026</p>
+          <p style={{ color: 'grey', fontSize: '15px' }}>
+            Автор: User {item.userId}
+          </p>
+          <p style={{ color: 'grey', fontSize: '15px' }}>Дата: 2026</p>
         </div>
       ))}
       <div className="btn">

@@ -1,8 +1,8 @@
-import { Button, Form, Input } from 'antd'
-import { useFilter } from '../stores/filter.store.js'
+import {Button, Form, Input} from 'antd'
+import {useFilter} from '../../stores/filter.store.js'
 import FormItem from 'antd/es/form/FormItem/index.js'
-import { useEffect } from 'react'
-import { useForm } from 'antd/es/form/Form.js'
+import {useEffect} from 'react'
+import {useForm} from 'antd/es/form/Form.js'
 
 export const FilterForm = () => {
   const { price_min, price_max, title, categoryId, reset, setFilter } =
@@ -20,6 +20,12 @@ export const FilterForm = () => {
 
   return (
     <Form
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '20px',
+        marginLeft: '40px',
+      }}
       form={form}
       className="form"
       onFinish={(values) => {
@@ -41,6 +47,8 @@ export const FilterForm = () => {
 
       <FormItem>
         <Button htmlType="submit">Применить</Button>
+      </FormItem>
+      <FormItem>
         <Button type="primary" onClick={reset}>
           Сбросить
         </Button>

@@ -1,7 +1,7 @@
-import {useQuery} from '@tanstack/react-query'
-import {useParams, useSearchParams} from 'react-router-dom'
+import { useQuery } from '@tanstack/react-query'
+import { useParams, useSearchParams } from 'react-router-dom'
 import axios from 'axios'
-import {useFilter} from '../stores/filter.store.js'
+import { useFilter } from '../../../../stores/filter.store.js'
 
 export const useV1Products = () => {
   const limit = 12

@@ -1,6 +1,6 @@
 // import React from "react";
 import { useLoaderData, useNavigation } from 'react-router-dom'
-import { ProductCard } from '../components/ProductCard.jsx'
+import { ProductCard } from '../app/modules/Products/ui/ProductCard.jsx'
 
 export const Products = () => {
   const data = useLoaderData()

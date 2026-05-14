@@ -1,4 +1,4 @@
-import { QueryProvider } from './providers/QueryProvider.jsx'
+import { QueryProvider } from './app/providers/QueryProvider.jsx'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router.jsx'
 import { QueryClient } from '@tanstack/react-query'
