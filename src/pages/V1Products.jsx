@@ -22,9 +22,6 @@ export const V1Products = () => {
     toast.error('Ошибка загрузки')
     return <h2>Ошибка: {error?.message}</h2>
   }
-  if (isSuccess) {
-    toast.success('Данные загружены')
-  }
 
   return (
     <div>
